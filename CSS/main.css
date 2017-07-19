@@ -21,32 +21,20 @@ body {
 }
 h1 {
   font-size: 6vh;
-  text-shadow: 2px 2px orange;
+  text-shadow: 5px 5px 5px black;
 }
 h2 {
   font-size: 2vh;
 }
 h3 {
-
+  color : orange;
+  text-align: center;
 }
 span {
-  background-color: orange;
+  background-color: grey;
   color : white;
   font-size: 2vh;
   text-decoration: underline;
-}
-hr {
-  color : orange
-}
-
-
-/*------------------------------------------------------------------------------
-                    Images (logo, wallpaper, icones, ...)
-------------------------------------------------------------------------------*/
-header img {
-  height: 100px;
-  position: relative;
-  right: 10px;
 }
 
 /*------------------------------------------------------------------------------
@@ -57,18 +45,11 @@ header{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-header div:first-child {
   background-image: url(../IMG/header.jpg);
-  background-repeat: no-repeat;
-  width : 80%;
+  background-size:cover;
+  background-position: center;
+  width : 100%;
   color : white;
-}
-header div img {
-  background-color: #777;
-  filter : invert(100%);
 }
 @media screen and (max-width: 640px) {
   header {
@@ -80,7 +61,6 @@ header div img {
   }
 }
 
-
 /*------------------------------------------------------------------------------
                                 Menu navigation
 ------------------------------------------------------------------------------*/
@@ -89,11 +69,15 @@ nav {
   justify-content: space-around;
   background-color: rgba(0,0,0,0.8);
   padding: 5px;
+  color : white;
 }
 nav a {
   color : white;
 }
 nav a:hover {
+  color : orange;
+}
+nav em {
   color : orange;
 }
 @media screen and (max-width: 640px) {
@@ -117,16 +101,15 @@ nav a:hover {
 .divAside {
   flex : 1;
   max-width: 50%;
-  border: 1px solid green;
 }
 .news {
   height : 280px;
   overflow: scroll;
-  padding : 5px;
   text-align: center;
-  margin: auto;
+  padding : 5px;
+  margin: 10px;
   border: 1px solid grey;
-  border-radius: 5px;
+  border-radius: 7px;
 }
 .bxslider img {
     width : 100%;
@@ -140,21 +123,46 @@ nav a:hover {
     display: flex;
     flex-direction: column;
   }
-  }
 }
 
 /*------------------------------------------------------------------------------
                                 Inscription
 ------------------------------------------------------------------------------*/
-#inscription {
-  text-align: center;
-  display: flex;
-  justify-content: space-around;
-}
 #inscription img {
   height: 150px;
   width : 150px;
 }
+#inscription {
+  display : flex;
+  justify-content: space-around;
+  text-align: center;
+}
+@media screen and (max-width: 600px) {
+  #inscription {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/*------------------------------------------------------------------------------
+                                Participation
+------------------------------------------------------------------------------*/
+.formfiche{
+  border: 2px solid black;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (max-width: 800px) {
+  .formfiche{
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 /*------------------------------------------------------------------------------
                                 Footer
 ------------------------------------------------------------------------------*/

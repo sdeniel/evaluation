@@ -1,10 +1,6 @@
 <?php
-session_start();
+
 //Informations d'entrées du serveur + base de données (+ table associée ?)
-$_SESSION['serveur'] = "localhost";
-$_SESSION['pseudo'] = "root";
-$_SESSION['pass'] = "Afp4S3b!";
-$_SESSION['baseDonnees'] = "evaluation";
 $_SESSION['nomUser']= filter_input(INPUT_POST, 'pseudoCo', FILTER_SANITIZE_STRING);
 
 //Sécurisation des données saisies pour la connection
@@ -22,12 +18,14 @@ try {
 
     // On vérifie les ID et mot de passe de l'utilisateur, si ok on passe à la page d'accueil
     if (isset($donnees['login'])&&($donnees['login'] == $log)&&($donnees['password'] == $password)){
-      header('Location: accueil.php');
+      $_SESSION['nomUser'] = $log;
+      header('Location: ?page=accueil');
       exit();
     }
     // sinon on reste sur la page de login
     else {
-        header('Location: resultatConnecte.php?res=3');
+        $_SESSION['res'] = 3;
+        header('Location: ?page=resultatConnecte');
     }
 }
 catch (Exception $e) {

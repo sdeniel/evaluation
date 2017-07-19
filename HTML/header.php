@@ -1,29 +1,21 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <link rel="stylesheet" type="text/css" href="../CSS/main.css">
-    </head>
+<header>
+  <h1>Athletik</h1>
+</header>
 
-    <header>
-        <div>
-            <h1>Athletik</h1>
-        </div>
-        <div class="etat">
-          <?php include "etatConnection.php"; ?>
-        </div>
-
-    </header>
-    <hr/>
-
-    <nav>
-        <div class=""><a href="accueil.php">Présentation</a>
-        </div>
-        <div class=""><a href="participation.php">Participation</a>
-        </div>
-        <div class=""><a href="resultats.php">Résultats</a>
-        </div>
-        <div class=""><a href="classement.php">Classement</a>
-        </div>
-    </nav>
-    <hr/>
+<nav>
+    <div class=""><a href="?page=accueil">Présentation</a>
+    </div>
+    <div class=""><a href="?page=participation">Participation</a>
+    </div>
+    <div class=""><a href="?page=resultats">Résultats</a>
+    </div>
+    <?php
+        if (isset($_SESSION['nomUser'])) {
+        echo "<a href='?page=destroy'>Deconnection</a></p>";
+          echo "<em>Bonjour ".$_SESSION['nomUser']."</em>";
+        }
+        else {
+          echo"<div><a href='?page=inscription'>Connection</a></div>";
+        }
+    ?>
+</nav>
