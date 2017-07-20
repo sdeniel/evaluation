@@ -7,6 +7,7 @@
   $_SESSION['baseDonnees'] = "evaluation";
   $_SESSION['tableLogin'] = 'user';
   $_SESSION['tableAthlete'] = 'athlete';
+  $_SESSION['tableCourse'] = 'meeting';
 
 ?>
 
@@ -36,7 +37,8 @@
             default : include "accueil.php";
         }
     }
-    else include "accueil.php"
+    else include "accueil.php";
+
     ?>
   </body>
 

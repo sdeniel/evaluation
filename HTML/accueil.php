@@ -50,24 +50,10 @@
             </ul>
         </div>
         <div class="news">
-          <div>
-            <span>Evenements à venir</span>
-            <p>21 juillet : Repas de fin de saison<br/>
-               15 août : Athletik Challenge</br/>
-               3 septembre : Reprise des entraînements</br/>
-               16 septembre : Course en sac</br/>
-               3 décembre : Course en slip dans la neige</p>
-          </div>
 
-          <div>
-            <span>Inscription à l'Athletic Challenge</span>
-            <p><a href="?page=participation"><button>Je participe</button></a></p>
-          </div>
+          <?php include "news.php"; ?>
 
-          <div>
-            <span>Accéder aux scores</span>
-            <p><a href="?page=resultats">Résultats/Classement</a></p>
-          </div>
+
         </div>
     </div>
 </div>

@@ -103,10 +103,10 @@ nav em {
   max-width: 50%;
 }
 .news {
-  height : 280px;
+  height: 200px;
   overflow: scroll;
   text-align: center;
-  padding : 5px;
+  padding : 10px;
   margin: 10px;
   border: 1px solid grey;
   border-radius: 7px;
@@ -164,8 +164,28 @@ nav em {
 }
 
 /*------------------------------------------------------------------------------
-                                Footer
+                                Participation
 ------------------------------------------------------------------------------*/
-footer {
+.resultatClassement {
+  display: flex;
+  justify-content : space-around;
+}
+.test {
+  display: flex;
+  flex-direction: row;
+  justify-content : space-between;
+}
+.test div {
+  //border : 1px solid black;
+  width : 10em;;
+}
+.selectionCourse {
+  width : 100%;
   text-align: center;
+}
+@media screen and (max-width: 850px) {
+  .resultatClassement {
+    display: flex;
+    flex-direction: column;
+  }
 }
