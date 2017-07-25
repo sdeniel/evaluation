@@ -4,6 +4,7 @@ $secretKey = '6LfXnikUAAAAANZC-9ESxSR66y-edVN3p7mVLKJU'; // votre clé privée
 $loginIns = filter_input(INPUT_POST, 'loginIns', FILTER_SANITIZE_STRING);
 $passwordIns = filter_input(INPUT_POST, 'passwordIns', FILTER_SANITIZE_STRING);
 $passwordIns2 = filter_input(INPUT_POST, 'passwordIns2', FILTER_SANITIZE_STRING);
+$password = password_hash($passwordIns, PASSWORD_DEFAULT);
 $emailIns = filter_input(INPUT_POST, 'emailIns', FILTER_VALIDATE_EMAIL);
 
 $captcha;
@@ -11,7 +12,7 @@ if(isset($_POST['g-recaptcha-response'])) {
     $captcha=$_POST['g-recaptcha-response'];
 }
 if(!$captcha){
-    echo '<h2>Please check the the captcha form.</h2>';
+    echo '<h2>Problème de Captcha</h2>';
     exit();
 }
 $ip = $_SERVER['REMOTE_ADDR'];
@@ -40,8 +41,7 @@ else {
           }
           else {
               try {
-                  $bdd = new PDO('mysql:host='.$_SESSION['serveur'].'; dbname='.$_SESSION['baseDonnees'].'; charset=utf8', $_SESSION['pseudo'], $_SESSION['pass']);
-                  $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                  include "controlleur.php";
 
                   // verif login existant
                   $veriflog = $bdd->query("SELECT login FROM user WHERE login='$loginIns'");
@@ -59,13 +59,11 @@ else {
                     else {
 
                       // Préparation d'insertion, création des marqueurs
-                      $req = $bdd -> prepare (
-                          'INSERT INTO '.$_SESSION['tableLogin'].'(login, password, email)
-                          VALUES(:identifiant, :password, :email)');
-                      // lier nos marqueurs à nos variables (protection)
+                      $req = $bdd -> prepare ('INSERT INTO '.$_SESSION['tableLogin'].'(login, password, email)
+                                              VALUES(:identifiant, :password, :email)');
 
                       $req->bindParam(':identifiant', $loginIns);
-                      $req->bindParam(':password', $passwordIns);
+                      $req->bindParam(':password', $password);
                       $req->bindParam(':email', $emailIns);
                       // Execution des instructions
                       $req->execute();

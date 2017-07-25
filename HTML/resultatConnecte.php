@@ -4,7 +4,7 @@ $resultat = $_SESSION['res'];
 
 
 
-// les différents cas de figure
+// les différents cas de figure lorsque l'on remplit les champ de connection et de création de compte
 switch($resultat) {
   case 0 :
     echo "L'adresse email a été mal renseigné ou est déjà utilisée, veuillez recommencer ..."."<br/>";

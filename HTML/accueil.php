@@ -1,5 +1,6 @@
 <div class="contenu">
     <div class="presAsso">
+      <!-- Section de présentation de l'association -->
       <section>
           <h2>Découverte de notre association</h2>
           <p>L’association « athletik – les 1000 pas » est une association
@@ -39,6 +40,7 @@
       </section>
     </div>
 
+    <!-- Le carousel -->
     <div class="divAside">
         <div class="carousel">
             <ul class="bxslider">
@@ -58,7 +60,8 @@
     </div>
 </div>
 
-<!-- TUTO carousel : http://bxslider.com/ -->
+<!-- Si besoin, la page qui m'a servi pour comprendre le fonctionnement du carousel : http://bxslider.com/ -->
+<!-- On ajoute qqs options pour l'aspect graphique -->
 <script type="text/javascript">
   $('.bxslider').bxSlider({
     auto: true,

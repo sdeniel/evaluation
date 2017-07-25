@@ -1,6 +1,6 @@
 <?php
   session_start();
-  //Informations d'entrées du serveur + base de données (+ table associée ?)
+  //Declaration des variables que l'on réutilisera tout au long du code
   $_SESSION['serveur'] = "localhost";
   $_SESSION['pseudo'] = "root";
   $_SESSION['pass'] = "Afp4S3b!";
@@ -8,6 +8,11 @@
   $_SESSION['tableLogin'] = 'user';
   $_SESSION['tableAthlete'] = 'athlete';
   $_SESSION['tableCourse'] = 'meeting';
+  $_SESSION['tableResultats'] = 'result';
+
+  // Temporaire on choisit la 2nd course :
+  $_SESSION['nomCourse'] = 'Troufaillon Les oies';
+  $_SESSION['numCourse'] = 2;
 
 ?>
 
@@ -17,18 +22,18 @@
 		<meta charset="utf-8" />
 		<title>Athletik - les 1000 pas</title>
     <link rel="stylesheet" type="text/css" href="../CSS/main.css">
-    <!-- jQuery library (served from Google) -->
+    <!-- jQuery : nous sert pour le carousel -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    <!-- bxSlider Javascript file -->
+    <!-- bxSlider : notre carousel -->
     <script src="../bxslider/jquery.bxslider.min.js"></script>
-    <!-- bxSlider CSS file -->
     <link href="../bxslider/jquery.bxslider.css" rel="stylesheet" />
+    <!-- Notre captcha google -->
     <script src="https://www.google.com/recaptcha/api.js"></script>
 	</head>
 
   <body>
     <?php
-    // permet la gestion du session_start() sur cette seule page
+    // permet la gestion d'un seul session_start(). Plus propre et plus sain qu'un par page.
     include "header.php";
     if (isset($_GET["page"])){
         switch ($_GET["page"]) {

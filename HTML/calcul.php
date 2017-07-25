@@ -1,7 +1,7 @@
 <?php
 try {
-    $bdd = new PDO('mysql:host='.$_SESSION['serveur'].'; dbname='.$_SESSION['baseDonnees'].'; charset=utf8', $_SESSION['pseudo'], $_SESSION['pass']);
-    $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    include "controlleur.php";
+
     $reponseResult = $bdd->prepare("SELECT athlete.*, result.time, result.points  FROM athlete inner join result on athlete.id = result.id WHERE result.meeting_id =1 ORDER BY firstname ASC");
     $reponseResult->execute(array());
     echo "<h3>Resultats de la course</h3>";
@@ -34,7 +34,6 @@ try {
           default :
               echo "Master";
         }
-      //  $tab[$i] = array("name" => $donnees['birthdate']);
     }
 }
 catch (Exception $e) {

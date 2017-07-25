@@ -11,11 +11,10 @@
 
         <?php
         include "controlleur.php";
-        $numCourse = "";
 
         if(isset($_POST))
             {
-            // AJOUT D'UNE NOUVEAU COURSE
+          // AJOUT D'UNE NOUVEAU COURSE
             $req = $bdd -> prepare ('INSERT INTO '.$_SESSION["tableCourse"].'(name, description, date)
                                      VALUES(:name, :description, :date)');
 
@@ -30,68 +29,72 @@
             if (!empty($addLieu)) {
                 $req->execute();
             }
+
           }
         ?>
     </div>
     <div class ="modeAdminTab">
         <h3>Entrer les temps des participants</h3>
 
-        <?php echo "Choix de la course<br/>";
-        $req = $bdd -> prepare ('SELECT name FROM meeting');
-        $req->execute();
-        $i = 1;
-        while ($donneesNomCourse = $req->fetch())
-        {
-              echo $i.' - '.$donneesNomCourse['name'].'<br/>';
-              $i++;
-        }
-        ?>
 
-        <form method="POST" action="#">
-            <input type="text" name="choixCourse" placeholder="Lieu : '1', '2', '3', ... " value="<?php echo $numCourse;?>" required/>
-            <input type="submit" name="courseOk" value="ok" />
-        </form>
+<!--/*******************************************************************************/
 
+/*******************************************************************************/-->
+        <!-- Liste des Courses de 2017, parcours des courses (dans la table de la BDD) -->
 
+        <select id="selectionCourse" onchange="choixCourse();">
+            <option value= "none">Choix de la course</option>";
+            <?php
+                $reponseCourse = $bdd->prepare("SELECT * FROM meeting WHERE YEAR(meeting.date) = 2017");
+                $reponseCourse->execute(array());
+                    while ($donnees = $reponseCourse->fetch())
+                    {
+                      echo "\t",'<option value="', $donnees['id'] ,'"' ,'>', $donnees['name'] ,'</option>',"\n";
+                    }
+                echo '</select>';
+          ?>
+        <script>
+            function choixCourse() {
+                var $course = document.getElementById('selectionCourse').value;
+                document.getElementById('numCourse').innerHTML = "course num : " + $course;
+            }
+        </script>
+        <p id = "numCourse"></p>
+
+<!--/*******************************************************************************/
+
+/*******************************************************************************/
+        // Liste des participants de la course selectionnée-->
+        <select id="selectionCoureur" onchange="choixCoureur();">
+            <option value= "none">Choix du coureur</option>";
+            <?php
+                $reponseCoureur = $bdd->prepare("SELECT * FROM athlete");// WHERE YEAR(meeting.date) = 2017");
+                $reponseCoureur->execute(array());
+                    while ($donnees = $reponseCoureur->fetch())
+                    {
+                      echo "\t",'<option value="', $donnees['id'] ,'"' ,'>', $donnees['firstname'], ' ', $donnees['lastname'] ,'</option>',"\n";
+                    }
+                echo '</select>';
+          ?>
+        <script>
+            function choixCoureur() {
+                var $coureur = document.getElementById('selectionCoureur').value;
+                document.getElementById('numCoureur').innerHTML = "coureur num" + $coureur;
+            }
+        </script>
+        <p id = "numCoureur"></p>
+<!--/****************************************************************************-->
+<!--
+    Partie temporaire en considérant qu'on a selectionné un coureur avec la liste, la on le fait manuellement
+-->
 <?php
-if (isset($_POST['choixCourse'])){
-  $numCourse = $_POST['choixCourse'];
-  $req = $bdd -> prepare ('SELECT * FROM result WHERE meeting_id ='.$numCourse);
-  //$req->bindValue(':tableUser', $_SESSION['tableResultats']);
-  $req->execute();
-  echo "Pour la course N°".$numCourse.", il y a les participants :<br/>";
-  while ($donneesResult = $req->fetch())
-  {
-        echo $donneesResult['athlete_id'].'<br/>';
-  }
-
-  /*$req->execute();
-  while ($donneesResult = $req->fetch())
-  {
-        echo $donneesResult['lastname'];
-  }*/
-}
-
-
-
-/*
-$modif = $bdd->prepare("UPDATE $_SESSION['tableResultats'] SET   athlete_id=:athlete_id,
-                                                                 time=:time,
-                                                                 points=:points
-                                                           WHERE meeting_id=".$numCourse);
-
-$modif->bindParam(':tathlete_id', $titre);
-$modif->bindParam(':time', $time);
-$modif->bindParam(':titre', $titre);
-*/
-
 $idcoureur = 84; // mano
 $req = $bdd->prepare("SELECT birthdate FROM athlete WHERE id=".$idcoureur);// WHERE YEAR(meeting.date) = 2017");
 $req->execute(array());
 $annee = $req->fetch();
 $age = date("Y")-$annee['birthdate'];
 
-//echo "Le coureur num".$idcoureur." a ".$age." ans";
+echo "Le coureur num".$idcoureur." a ".$age." ans";
 ?>
 
 <script>
@@ -147,7 +150,7 @@ $age = date("Y")-$annee['birthdate'];
     </div>
 
 
-<!--?php
+<?php
 $numCourse = 2; // mano
 $htemp = 1;//$_POST['chrono'];
 $hpoint = 1;//$_POST['points'];
@@ -159,4 +162,4 @@ $hpoint = 1;//$_POST['points'];
  $reqEnvoi->bindParam(':time', $htemp);
  $reqEnvoi->bindParam(':points', $hpoint);
  $reqEnvoi->execute();
-?-->
+?>

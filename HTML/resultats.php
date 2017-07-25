@@ -1,7 +1,8 @@
 <?php
+
+// GESTIONNAIRE ADMIN OU AUTRE POUR L'ACCES GESTION OU LECTURE DES DONNEES
 try {
-    $bdd = new PDO('mysql:host='.$_SESSION['serveur'].'; dbname='.$_SESSION['baseDonnees'].'; charset=utf8', $_SESSION['pseudo'], $_SESSION['pass']);
-    $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    include "controlleur.php";
 
     // Préparation d'insertion, création des marqueurs
     $donneesTest['admin'] = 0;  // initialisation dans le cas visiteur non connecté

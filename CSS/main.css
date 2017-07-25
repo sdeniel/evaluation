@@ -106,7 +106,7 @@ nav em {
   height: 200px;
   overflow: scroll;
   text-align: center;
-  padding : 10px;
+  padding : 0px;
   margin: 10px;
   border: 1px solid grey;
   border-radius: 7px;
@@ -122,6 +122,10 @@ nav em {
   .contenu {
     display: flex;
     flex-direction: column;
+    border : 1px solid blue;
+  }
+  .divAside {
+    max-width: 100%;
   }
 }
 
@@ -168,16 +172,40 @@ nav em {
 ------------------------------------------------------------------------------*/
 .resultatClassement {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content : space-around;
+  width : 100%;
+}
+.ole{
+  width : 100%;
+  background-image: url('../IMG/chrono.jpg');
+  background-size:cover;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.podium {
+  width : 100%;
+  background-image: url('../IMG/podium.png');
+  margin-bottom: 10px;
+  opacity: 0.75;
+  background-size:cover;
+  background-position: center;
 }
 .test {
   display: flex;
-  flex-direction: row;
-  justify-content : space-between;
+  background-color: rgba(255,255,255,0.5);
+  /*border: 1px solid blue;*/
 }
 .test div {
-  //border : 1px solid black;
-  width : 10em;;
+  flex : 1;
+  text-align: left;
+}
+.test2{
+  text-align: center;
+}
+.test2 img {
+  flex : 1;
 }
 .selectionCourse {
   width : 100%;
@@ -188,4 +216,22 @@ nav em {
     display: flex;
     flex-direction: column;
   }
+}
+
+/*------------------------------------------------------------------------------
+                                Mode Admin - result
+------------------------------------------------------------------------------*/
+.modeAdmin {
+  display: flex;
+}
+.modeAdmin form {
+  display: flex;
+  flex-direction: column;
+}
+.modeAdminform {
+  flex : 1;
+}
+.modeAdminTab {
+  flex : 3;
+  margin-left: 10px;
 }
