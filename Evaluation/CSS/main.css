@@ -1,0 +1,251 @@
+/*------------------------------------------------------------------------------
+                        Paramètres généraux
+------------------------------------------------------------------------------*/
+* {
+
+}
+body {
+  width : 80%;
+  margin: auto;
+  /*background-image: url("../IMG/wallpaper.png");
+	background-position: top;
+	background-size: auto 100%;
+  background-attachment: fixed;*/
+}
+
+/*------------------------------------------------------------------------------
+                    Tailles, polices et fonts
+------------------------------------------------------------------------------*/
+@font-face {
+	font-family: 'athle';
+	src: url(../FONT/Athle.ttf);
+}
+* {
+  font-family: 'athle';
+}
+h1 {
+  font-size: 6vh;
+  text-shadow: 5px 5px 5px black;
+}
+h2 {
+  font-size: 2vh;
+}
+h3 {
+  color : orange;
+  text-align: center;
+}
+span {
+  background-color: grey;
+  color : white;
+  font-size: 2vh;
+  text-decoration: underline;
+}
+
+/*------------------------------------------------------------------------------
+                                Header
+------------------------------------------------------------------------------*/
+header{
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-image: url(../IMG/header.jpg);
+  background-size:cover;
+  background-position: center;
+  width : 100%;
+  color : white;
+}
+@media screen and (max-width: 640px) {
+  header {
+    display : flex;
+    flex-direction: column;
+  }
+  header div:first-child {
+    width : 100%;
+  }
+}
+
+/*------------------------------------------------------------------------------
+                                Menu navigation
+------------------------------------------------------------------------------*/
+nav {
+  display: flex;
+  justify-content: space-around;
+  background-color: rgba(0,0,0,0.8);
+  padding: 5px;
+  color : white;
+}
+nav a {
+  color : white;
+}
+nav a:hover {
+  color : orange;
+}
+nav em {
+  color : orange;
+}
+@media screen and (max-width: 640px) {
+  nav {
+    display : flex;
+    flex-direction: column;
+  }
+}
+
+/*------------------------------------------------------------------------------
+                                Contenu
+------------------------------------------------------------------------------*/
+.contenu {
+  display: flex;
+}
+.presAsso {
+  flex : 2;
+  text-align: justify;
+  padding: 5px;
+}
+.divAside {
+  flex : 1;
+  max-width: 50%;
+}
+.news {
+  height: 200px;
+  overflow: scroll;
+  text-align: center;
+  padding : 0px;
+  margin: 10px;
+  border: 1px solid grey;
+  border-radius: 7px;
+}
+.bxslider img {
+    width : 100%;
+    height : 100%;
+}
+.bxslider li {
+  list-style: none;
+}
+@media screen and (max-width: 900px) {
+  .contenu {
+    display: flex;
+    flex-direction: column;
+    border : 1px solid blue;
+  }
+  .divAside {
+    max-width: 100%;
+  }
+}
+
+/*------------------------------------------------------------------------------
+                                Inscription
+------------------------------------------------------------------------------*/
+#inscription img {
+  height: 150px;
+  width : 150px;
+}
+#inscription {
+  display : flex;
+  justify-content: space-around;
+  text-align: center;
+}
+@media screen and (max-width: 600px) {
+  #inscription {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/*------------------------------------------------------------------------------
+                                Participation
+------------------------------------------------------------------------------*/
+.formfiche{
+  border: 2px solid black;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (max-width: 800px) {
+  .formfiche{
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/*------------------------------------------------------------------------------
+                                Participation
+------------------------------------------------------------------------------*/
+.resultatClassement {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content : space-around;
+  width : 100%;
+}
+.ole{
+  width : 100%;
+  background-image: url('../IMG/chrono.jpg');
+  background-size:cover;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.podium {
+  width : 100%;
+  background-image: url('../IMG/podium.png');
+  margin-bottom: 10px;
+  opacity: 0.75;
+  background-size:cover;
+  background-position: center;
+  border : 2px solid orange;
+  border-radius: 10px;
+}
+.test {
+  display: flex;
+  background-color: rgba(255,255,255,0.5);
+  /*border: 1px solid blue;*/
+}
+.test div {
+  flex : 1;
+  text-align: left;
+}
+.test2{
+  text-align: center;
+}
+.test2 img {
+  flex : 1;
+}
+.selectionCourse {
+  width : 100%;
+  text-align: center;
+}
+@media screen and (max-width: 850px) {
+  .resultatClassement {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/*------------------------------------------------------------------------------
+                                Mode Admin - result
+------------------------------------------------------------------------------*/
+.modeAdmin {
+  display: flex;
+}
+.modeAdmin form {
+  display: flex;
+  flex-direction: column;
+}
+.modeAdminform {
+  flex : 1;
+}
+.modeAdminTab {
+  flex : 3;
+  margin-left: 10px;
+  text-align: center;
+}
+
+.participant {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 1px solid black;
+}
