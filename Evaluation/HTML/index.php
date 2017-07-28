@@ -1,6 +1,7 @@
 <?php
   session_start();
   //Declaration des variables que l'on réutilisera tout au long du code
+  // constante a mettre dans fichier de config.inc (methode DEFINE)
   $_SESSION['serveur'] = "localhost";
   $_SESSION['pseudo'] = "root";
   $_SESSION['pass'] = "Afp4S3b!";
@@ -9,7 +10,6 @@
   $_SESSION['tableAthlete'] = 'athlete';
   $_SESSION['tableCourse'] = 'meeting';
   $_SESSION['tableResultats'] = 'result';
-
   // Temporaire on choisit la 2nd course :
   $_SESSION['nomCourse'] = 'Troufaillon Les oies';
   $_SESSION['numCourse'] = 2;
@@ -43,7 +43,6 @@
         }
     }
     else include "accueil.php";
-
     ?>
   </body>
 

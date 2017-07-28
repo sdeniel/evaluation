@@ -30,7 +30,7 @@ $req->execute();
 
   for ($j = 0; $j < $i; $j++) {
     ?>
-    <div class="test">
+    <div class="tabAdminModif">
         <div>
             <form method = "post" class = "participant">
                 <input type='hidden' id='idCoureur' value="<?php echo $id[$j];?>"/>

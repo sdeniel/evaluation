@@ -7,10 +7,6 @@
 body {
   width : 80%;
   margin: auto;
-  /*background-image: url("../IMG/wallpaper.png");
-	background-position: top;
-	background-size: auto 100%;
-  background-attachment: fixed;*/
 }
 
 /*------------------------------------------------------------------------------
@@ -126,7 +122,6 @@ nav em {
   .contenu {
     display: flex;
     flex-direction: column;
-    border : 1px solid blue;
   }
   .divAside {
     max-width: 100%;
@@ -172,7 +167,7 @@ nav em {
 }
 
 /*------------------------------------------------------------------------------
-                                Participation
+                                Résultats Users
 ------------------------------------------------------------------------------*/
 .resultatClassement {
   display: flex;
@@ -201,7 +196,6 @@ nav em {
 .test {
   display: flex;
   background-color: rgba(255,255,255,0.5);
-  /*border: 1px solid blue;*/
 }
 .test div {
   flex : 1;
@@ -225,7 +219,7 @@ nav em {
 }
 
 /*------------------------------------------------------------------------------
-                                Mode Admin - result
+                                Résultats Admin
 ------------------------------------------------------------------------------*/
 .modeAdmin {
   display: flex;
@@ -242,10 +236,25 @@ nav em {
   margin-left: 10px;
   text-align: center;
 }
-
 .participant {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   border: 1px solid black;
+}
+.tabAdminModif {
+  display: flex;
+}
+.participant {
+  display: flex;
+}
+@media screen and (max-width: 850px) {
+  .modeAdmin {
+    display: flex;
+    flex-direction: column;
+  }
+  .participant {
+    display: flex;
+    flex-direction: column;
+  }
 }

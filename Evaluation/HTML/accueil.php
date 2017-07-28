@@ -53,6 +53,7 @@
         </div>
         <div class="news">
 
+          <!-- Intégration de la page news.php qui donne des renseignements sur les courses passées et à venir-->
           <?php include "news.php"; ?>
 
 
@@ -61,7 +62,7 @@
 </div>
 
 <!-- Si besoin, la page qui m'a servi pour comprendre le fonctionnement du carousel : http://bxslider.com/ -->
-<!-- On ajoute qqs options pour l'aspect graphique -->
+<!-- On ajoute qqs options pour l'aspect graphique de notre carousel-->
 <script type="text/javascript">
   $('.bxslider').bxSlider({
     auto: true,

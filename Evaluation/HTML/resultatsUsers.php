@@ -1,4 +1,6 @@
 <?php
+//$consultCourse = new ResultatsUsers;
+//$consultCourse->consultationResultatsf();
 
 // RESULTATS + CLASSEMENT
   echo "<div class='resultatClassement'><div class='ole'>";
@@ -54,8 +56,4 @@
       $i++;
     }
     echo "</div>";
-//******************************************************************************************************************
-
-
-
  ?>
